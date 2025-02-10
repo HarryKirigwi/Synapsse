@@ -101,7 +101,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-footerColor text-txtColor">
       <div className="container mx-auto px-4 py-16">
         {/* Top Section */}
         <div className="grid md:grid-cols-3 gap-12">

@@ -19,8 +19,11 @@ module.exports = {
 		"deepRed": "#F6DCAC",
 		"btnColor":"#FEAE6F",
 		"btnLighter":"#FFC48B",
-		"generalBg": "#F3E5F5",
-		"cardColor": "#376b82"
+		"generalBg": "#ADBBDA",
+		"cardColor": "#376b82",
+		"footerColor":"#3D52A0",
+		"whyColor": "#7091E6",
+		"orangered":"#FF4500"
 	},
   	extend: {
   		borderRadius: {

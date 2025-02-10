@@ -43,7 +43,7 @@ const WhyChooseSynapsse: React.FC = () => {
   ];
 
   const FeatureCard: React.FC<FeatureProps> = ({ icon: Icon, title, description }) => (
-    <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 group">
+    <div className="bg-trasparent backdrop-blur-sm p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 group">
       <div className="flex items-center mb-4">
         <Icon 
           className="w-10 h-10 text-blue-600 mr-4 group-hover:text-blue-800 transition-colors" 
@@ -58,7 +58,7 @@ const WhyChooseSynapsse: React.FC = () => {
   );
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-whyColor text-txtColor">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">

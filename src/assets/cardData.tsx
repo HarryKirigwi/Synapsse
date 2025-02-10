@@ -57,7 +57,7 @@ const CoursesList: React.FC = () => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {Object.entries(Courses).map(([key, course]) => (
-                <Card key={key} className="shadow-md">
+                <Card key={key} className="shadow-md bg-transparent backdrop-blur-xl">
                     <CardHeader>
                         <CardTitle>{course.title}</CardTitle>
                         <CardDescription>{course.description}</CardDescription>

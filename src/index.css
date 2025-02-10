@@ -4,6 +4,20 @@
 
 /* ... */
 
+@layer utilities {
+  .rounded-custom {
+    border-top-left-radius: 30% 30%;
+    border-bottom-right-radius: 30% 30%;
+  }
+  .rounded-landing {
+    border-bottom-right-radius: 30% 50%;
+  }
+  .rounded-logo {
+    border-bottom-right-radius: 50% 50%;
+  }
+}
+
+
 @layer base {
   :root {
 

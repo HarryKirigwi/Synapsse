@@ -104,8 +104,8 @@ const TestimonialData: Testimonial[] = [
   
     return (
     <>
-    <div className="container flex justify-center">
-<h1 className="text-2xl font-bold text-center">Here is what our Alumni Say</h1>
+    <div className="container">
+{/* <h1 className="text-2xl font-bold">Here is what our Alumni Say</h1> */}
     </div>
 
       <section className="relative w-full max-w-6xl mx-auto py-16 px-4">

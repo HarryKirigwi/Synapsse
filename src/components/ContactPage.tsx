@@ -44,6 +44,7 @@ const ContactPage: React.FC = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
+      // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1500));
       console.log('Form Submitted:', data);
       alert('Message sent successfully!');
@@ -59,8 +60,8 @@ const ContactPage: React.FC = () => {
       icon: Mail,
       title: 'Email',
       details: [
-        { label: 'General Inquiries', value: 'info@synapsse.edu' },
-        { label: 'Admissions', value: 'admissions@synapsse.edu' }
+        { label: 'General Inquiries', value: 'info@company.com' },
+        { label: 'Support', value: 'support@company.com' }
       ]
     },
     {
@@ -68,27 +69,27 @@ const ContactPage: React.FC = () => {
       title: 'Phone',
       details: [
         { label: 'Main Office', value: '+1 (555) 123-4567' },
-        { label: 'Admissions Hotline', value: '+1 (555) 987-6543' }
+        { label: 'Support Line', value: '+1 (555) 987-6543' }
       ]
     },
     {
       icon: FaWhatsapp,
       title: 'WhatsApp',
       details: [
-        { label: 'Student Support', value: '+1 (555) 246-8135' },
-        { label: 'International Inquiries', value: '+1 (555) 369-2580' }
+        { label: 'Customer Support', value: '+1 (555) 246-8135' },
+        { label: 'Sales Inquiries', value: '+1 (555) 369-2580' }
       ]
     },
     {
       icon: MapPin,
       title: 'Address',
       details: [
-        { label: 'Main Campus', value: '123 Learning Lane, Education City, EC 12345' }
+        { label: 'Main Location', value: '123 Business Street, City, State 12345' }
       ]
     },
     {
       icon: Clock,
-      title: 'Office Hours',
+      title: 'Business Hours',
       details: [
         { label: 'Weekdays', value: '9:00 AM - 5:00 PM' },
         { label: 'Weekends', value: '10:00 AM - 2:00 PM' }
@@ -97,168 +98,151 @@ const ContactPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-        {/* Contact Form Section */}
-        <div className="bg-white shadow-xl rounded-2xl p-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900">
-              Send Us a Message
-            </h2>
-            <p className="mt-4 text-gray-600">
-              Have questions? We're here to help.
-            </p>
-          </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-8xl">
+        <div className="grid md:grid-cols-2 gap-12 bg-white rounded-3xl shadow-2xl overflow-hidden">
+          {/* Contact Form Section */}
+          <div className="p-4 bg-gradient-to-br from-blue-500 to-blue-700 text-white">
+            <div className="mb-8 text-center">
+              <h2 className="text-4xl font-extrabold mb-4 tracking-tight">
+                Get in Touch
+              </h2>
+              <p className="text-blue-100 opacity-80">
+                We'd love to hear from you. Fill out the form and we'll get back to you shortly.
+              </p>
+            </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-            {/* Name Input */}
-            <div className="relative">
-              <label 
-                htmlFor="name" 
-                className="block text-sm font-medium text-gray-700"
-              >
-                Full Name
-              </label>
-              <div className="mt-1 relative rounded-md shadow-sm">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <User className="h-5 w-5 text-gray-400" />
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              {/* Name Input */}
+              <div className="group">
+                <label className="block mb-2 text-sm font-medium text-blue-100">
+                  Full Name
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <User className="h-5 w-5 text-blue-300 group-focus-within:text-white transition-colors" />
+                  </div>
+                  <input
+                    type="text"
+                    {...register('name')}
+                    className="w-full pl-10 pr-3 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg focus:border-white focus:ring-2 focus:ring-white/30 text-white placeholder-blue-200"
+                    placeholder="Your Name"
+                  />
                 </div>
-                <input
-                  type="text"
-                  id="name"
-                  {...register('name')}
-                  className={`block w-full pl-10 pr-3 py-2 border rounded-md 
-                    ${errors.name 
-                      ? 'border-red-300 text-red-900 placeholder-red-300 focus:ring-red-500 focus:border-red-500' 
-                      : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'
-                    } 
-                    text-sm`}
-                  placeholder="John Doe"
-                />
+                {errors.name && (
+                  <p className="mt-2 text-sm text-red-300">{errors.name.message}</p>
+                )}
               </div>
-              {errors.name && (
-                <p className="mt-2 text-sm text-red-600">{errors.name.message}</p>
-              )}
-            </div>
 
-            {/* Email Input */}
-            <div className="relative">
-              <label 
-                htmlFor="email" 
-                className="block text-sm font-medium text-gray-700"
-              >
-                Email Address
-              </label>
-              <div className="mt-1 relative rounded-md shadow-sm">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Mail className="h-5 w-5 text-gray-400" />
+              {/* Email Input */}
+              <div className="group">
+                <label className="block mb-2 text-sm font-medium text-blue-100">
+                  Email Address
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Mail className="h-5 w-5 text-blue-300 group-focus-within:text-white transition-colors" />
+                  </div>
+                  <input
+                    type="email"
+                    {...register('email')}
+                    className="w-full pl-10 pr-3 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg focus:border-white focus:ring-2 focus:ring-white/30 text-white placeholder-blue-200"
+                    placeholder="you@example.com"
+                  />
                 </div>
-                <input
-                  type="email"
-                  id="email"
-                  {...register('email')}
-                  className={`block w-full pl-10 pr-3 py-2 border rounded-md 
-                    ${errors.email 
-                      ? 'border-red-300 text-red-900 placeholder-red-300 focus:ring-red-500 focus:border-red-500' 
-                      : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'
-                    } 
-                    text-sm`}
-                  placeholder="you@example.com"
-                />
+                {errors.email && (
+                  <p className="mt-2 text-sm text-red-300">{errors.email.message}</p>
+                )}
               </div>
-              {errors.email && (
-                <p className="mt-2 text-sm text-red-600">{errors.email.message}</p>
-              )}
-            </div>
 
-            {/* Phone Input */}
-            <div className="relative">
-              <label 
-                htmlFor="phone" 
-                className="block text-sm font-medium text-gray-700"
-              >
-                Phone Number (optional)
-              </label>
-              <div className="mt-1 relative rounded-md shadow-sm">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Phone className="h-5 w-5 text-gray-400" />
+              {/* Phone Input */}
+              <div className="group">
+                <label className="block mb-2 text-sm font-medium text-blue-100">
+                  Phone Number (Optional)
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Phone className="h-5 w-5 text-blue-300 group-focus-within:text-white transition-colors" />
+                  </div>
+                  <input
+                    type="tel"
+                    {...register('phone')}
+                    className="w-full pl-10 pr-3 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg focus:border-white focus:ring-2 focus:ring-white/30 text-white placeholder-blue-200"
+                    placeholder="+1 (555) 123-4567"
+                  />
                 </div>
-                <input
-                  type="tel"
-                  id="phone"
-                  {...register('phone')}
-                  className={`block w-full pl-10 pr-3 py-2 border rounded-md 
-                    ${errors.phone 
-                      ? 'border-red-300 text-red-900 placeholder-red-300 focus:ring-red-500 focus:border -red-500' 
-                      : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'
-                    } 
-                    text-sm`}
-                  placeholder="+1 (555) 123-4567"
-                />
+                {errors.phone && (
+                  <p className="mt-2 text-sm text-red-300">{errors.phone.message }</p>
+                )}
               </div>
-              {errors.phone && (
-                <p className="mt-2 text-sm text-red-600">{errors.phone.message}</p>
-              )}
-            </div>
 
-            {/* Message Input */}
-            <div className="relative">
-              <label 
-                htmlFor="message" 
-                className="block text-sm font-medium text-gray-700"
-              >
-                Your Message
-              </label>
-              <div className="mt-1">
-                <textarea
-                  id="message"
-                  {...register('message')}
-                  className={`block w-full border rounded-md 
-                    ${errors.message 
-                      ? 'border-red-300 text-red-900 placeholder-red-300 focus:ring-red-500 focus:border-red-500' 
-                      : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'
-                    } 
-                    text-sm p-2`}
-                  rows={4}
-                  placeholder="Type your message here..."
-                />
+              {/* Message Input */}
+              <div className="group">
+                <label className="block mb-2 text-sm font-medium text-blue-100">
+                  Your Message
+                </label>
+                <div className="relative">
+                  <textarea
+                    {...register('message')}
+                    className="w-full border border-white/20 rounded-lg bg-white/10 backdrop-blur-sm p-3 text-white placeholder-blue-200 focus:border-white focus:ring-2 focus:ring-white/30"
+                    rows={4}
+                    placeholder="Type your message here..."
+                  />
+                </div>
+                {errors.message && (
+                  <p className="mt-2 text-sm text-red-300">{errors.message.message}</p>
+                )}
               </div>
-              {errors.message && (
-                <p className="mt-2 text-sm text-red-600">{errors.message.message}</p>
-              )}
-            </div>
 
-            {/* Submit Button */}
-            <div>
+              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="w-full py-3 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-colors duration-300 flex items-center justify-center space-x-2"
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                <Send className="h-5 w-5" />
+                <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
               </button>
-            </div>
-          </form>
-        </div>
+            </form>
+          </div>
 
-        {/* Contact Information Section */}
-        <div className="bg-white shadow-xl rounded-2xl p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
-          <div className="space-y-4">
-            {contactInfo.map((info, index) => (
-              <div key={index} className="flex items-start">
-                <info.icon className="h-6 w-6 text-blue-600 mr-3" />
-                <div>
-                  <h3 className="font-semibold text-gray-800">{info.title}</h3>
-                  {info.details.map((detail, idx) => (
-                    <p key={idx} className="text-gray-600">
-                      <span className="font-medium">{detail.label}: </span>
-                      {detail.value}
-                    </p>
-                  ))}
+          {/* Contact Information Section */}
+          <div className="p-4 bg-white">
+            <h2 className="text-3xl font-bold text-gray-800 mb-8">Contact Details</h2>
+            <div className="space-y-6">
+              {contactInfo.map((info, index) => (
+                <div 
+                  key={index} 
+                  className="flex items-start p-4 bg-blue-50 rounded-xl hover:shadow-md transition-all duration-300"
+                >
+                  <div className="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+                    <info.icon className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{info.title}</h3>
+                    {info.details.map((detail, idx) => (
+                      <p key={idx} className="text-gray-600 text-sm">
+                        {detail.label}: {detail.value}
+                      </p>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Additional Call to Action */}
+            <div className="mt-10 text-center">
+              <p className="text-gray-600 mb-4">
+                Need immediate assistance?
+              </p>
+              <a 
+                href="tel:+15551234567" 
+                className="inline-flex items-center px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+              >
+                <Phone className="mr-2 h-5 w-5" />
+                Call Us Now
+              </a>
+            </div>
           </div>
         </div>
       </div>

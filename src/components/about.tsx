@@ -19,35 +19,60 @@ const vision = `We envision a world where education is accessible, inclusive, an
 function About() {
   return (
     <>
-    <h1 className="text-3xl font-bold text-center lg:py-10">About Us</h1>
-    <div className="container flex justify-between">
-      <div>
-        <h1 className="text-2xl font-bold text-center">
-          About Synapsse University
+      <h1 className="hidden md:block lg:text-3xl font-bold text-center md:pt-10">
+        About Us
+      </h1>
+      {/* <div className="container flex justify-between"> */}
+      <div className="container lg:flex lg:justify-between md:py-4">
+        <div className="md:grid md:grid-cols-2 gap-4 lg:grid-cols-none">
+
+        <div className="university-image">
+          <img
+            src={universityImage}
+            className="w-screen h-80 md:w-auto lg:hidden md:h-fit lg:max-w-xl lg:h-auto rounded-md md:rounded-custom"
+          />
+        </div>
+          <div className="about">
+            <h1 className="text-lg lg:text-2xl font-bold text-center">
+              About Synapsse University
+            </h1>
+            <p className="text-md lg:text-xl py-4 px-2">{about}</p>
+          </div>
+          <div className="mission">
+            <h1 className="text-lg lg:text-2xl font-bold text-center">
+              Our Mission
+            </h1>
+            <p className="text-md lg:text-xl py-4 px-2">{mission}</p>
+          </div>
+
+          <div className="vision">
+            <h1 className="text-lg lg:text-2xl font-bold text-center">
+              Our Vision
+            </h1>
+            <p className="text-md lg:text-xl py-4 px-2">{vision}</p>
+          </div>
+
+          
+        </div>
+
+        <div className="university-image">
+          <img
+            src={universityImage}
+            className="w-screen h-80 hidden lg:block md:max-w-sm lg:max-w-xl lg:h-auto rounded-md lg:rounded-custom"
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-col justify-start items-start lg:pt-10 container">
+        {/* <h1 className="pt-8 md:text-2xl lg:text-3xl font-bold max-w-2xl">
+          Join us at Synapsse University, where innovation meets education, and
+          your future begins!
         </h1>
-        <p className="text-xl py-4 px-2">{about}</p>
-        <h1 className="text-2xl font-bold text-center">Our Mission</h1>
-        <p className="text-xl py-4 px-2">{mission}</p>
-        <h1 className="text-2xl font-bold text-center">Our Vision</h1>
-        <p className="text-xl py-4 px-2">{vision}</p>
+        <br /> */}
+        <Button className="text-lg self-center mb-6 lg:text-2xl bg-orangered lg:py-6 rounded-3xl">
+          Okay, I will enrol Now
+        </Button>
       </div>
-
-      <div>
-        <img
-          src={universityImage}
-          className="max-w-xl rounded-md"
-          style={{ borderTopLeftRadius: "30% 30%",
-            borderBottomRightRadius: "30% 30%"
-           }}
-        />
-      </div>
-    </div>
-
-    <div className="flex flex-col justify-start items-start lg:py-10 container">
-        <h1 className="lg:text-3xl font-bold max-w-2xl">Join us at Synapsse University, where innovation meets education, and your future begins!</h1><br/>
-        <Button variant="link" className="text-xl text-btnColor px-0 lg:py-4">Enrol Now</Button>
-    </div>
-
     </>
   );
 }

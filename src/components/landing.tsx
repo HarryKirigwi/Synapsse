@@ -9,16 +9,15 @@ function Landing() {
 
     <>
 <div
-  className="relative h-screen bg-cover bg-center bg-no-repeat container"
+  className="relative h-1/2 lg:h-screen bg-cover bg-center bg-no-repeat container lg:rounded-landing"
   style={{
-    backgroundImage: `linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(${imageBg})`,
-     borderBottomRightRadius: "30% 50%"
+    backgroundImage: `linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(${imageBg})`
   }}
 >
   {/* Content */}
-  <div className="relative z-10 h-full">
+  <div className="relative z-10 lg:h-full">
     <Header/>
-  <div className='flex items-center h-screen'>
+  <div className='flex pb-4 lg:h-screen lg:mt-10'>
         <div>
         <h1 className='scroll-m-20 max-w-2xl text-2xl text-deepRed leading-10 font-extrabold tracking-tight md:text-3xl lg:text-5xl block'>Synapsse University: Where Innovation meets Excellence</h1>
         <p className='text-txtColor max-w-prose font-semibold  text-lg py-4 lg:text-2xl lg:py-10'>Discover the world of excellence, where students come together to create a brighter tomorrow.</p>
